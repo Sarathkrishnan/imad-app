@@ -65,8 +65,8 @@ function createTemplate (data) {
 };
 
 app.get('main.js', function(req, res){
-    res.sendFile(path.join(__dirname, 'ui', 'main.js')
-})
+    res.sendFile(path.join(__dirname, 'ui', 'main.js'))
+});
 
 
 app.get('/', function (req, res) {
