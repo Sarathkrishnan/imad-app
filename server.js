@@ -5,12 +5,68 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var article_one = {
+    title : 'Aricle one',
+    heading : 'Article one',
+    date : '03/09/2017',
+    content :`
+            <p>
+            Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.
+            </p>
+            <p>
+            Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.
+            </p>
+            <p>
+            Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.
+            </p>`
+    
+};
+
+function createTemplate (data) {
+    var title = data.title;
+    var date = data.date;
+    var heading = data.heading;
+    var content = data.content;
+    
+    
+
+            var htmlTemplate `
+            <html>
+                <head>
+                    <title>${title}</title>
+                    <meta name="viewport" content="width-device-width, initial-scale=1"/>
+                    <link href="/ui/style.css" rel="stylesheet" />
+                </head>
+                <body>
+                    <div class="container">
+                        <div>
+                            <a href="/">HOME</a>
+                            <hr />
+                        </div>
+                        <div>
+                            <h1>${heading}</h1>
+                        </div>
+                        <div>
+                        ${date}
+                        <div>
+                            ${content}
+                        </div>
+                    </div>
+                </body>
+            </html>`
+                
+            
+};
+};
+
+
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
 app.get('/article-one',function(req,res) {
-   res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+   res.send(createTemplate(article_one));
 });
 
 app.get('/article-two',function(req,res) {
