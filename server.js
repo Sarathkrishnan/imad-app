@@ -9,6 +9,18 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+apt.get('/article-one',fuction(req,res) {
+   res.send("Articleone will be send"); 
+});
+
+apt.get('/article-two',fuction(req,res) {
+   res.send("Articleone will be send"); 
+});
+
+apt.get('/article-three',fuction(req,res) {
+   res.send("Articleone will be send"); 
+});
+
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
