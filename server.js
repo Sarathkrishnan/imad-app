@@ -57,7 +57,6 @@ function createTemplate (data) {
                 
             
 };
-};
 
 
 
