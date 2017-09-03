@@ -5,8 +5,8 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var article_one = {
-    title : 'Aricle one',
+var articleOne = {
+    title : 'Article one',
     heading : 'Article one',
     date : '03/09/2017',
     content :`
@@ -30,31 +30,36 @@ function createTemplate (data) {
     
     
 
-            var htmlTemplate=`
-            <html>
-                <head>
-                    <title>${title}</title>
-                    <meta name="viewport" content="width-device-width, initial-scale=1"/>
-                    <link href="/ui/style.css" rel="stylesheet" />
-                </head>
-                <body>
-                    <div class="container">
-                        <div>
-                            <a href="/">HOME</a>
-                            <hr />
-                        </div>
-                        <div>
-                            <h1>${heading}</h1>
-                        </div>
-                        <div>
-                        ${date}
-                        <div>
-                            ${content}
-                        </div>
+    var htmlTemplate=`
+        <html>
+            <head>
+                <title>${title}</title>
+                <meta name="viewport" content="width-device-width, initial-scale=1"/>
+                <link href="/ui/style.css" rel="stylesheet" />
+            </head>
+            <body>
+                <div class="container">
+                    
+                    <div>
+                        <a href="/">HOME</a>
+                        <hr />
                     </div>
-                </body>
-            </html>`
-                
+                    
+                    <div>
+                        <h1>${heading}</h1>
+                    </div>
+                    
+                    <div>
+                    ${date}
+                    </div>
+                    
+                    <div>
+                        ${content}
+                    </div>
+                </div>
+            </body>
+        </html>`
+        
             
 };
 
