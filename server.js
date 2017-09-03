@@ -58,8 +58,8 @@ function createTemplate (data) {
                     </div>
                 </div>
             </body>
-        </html>`
-        return htmlTemplate;
+        </html>`;
+    return htmlTemplate;
             
 };
 
