@@ -60,6 +60,7 @@ function createTemplate (data) {
             </body>
         </html>`;
     return htmlTemplate;
+
             
 };
 
@@ -70,7 +71,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/article-one',function(req,res) {
-   res.send(createTemplate(article_one));
+   res.send(createTemplate(articleOne));
 });
 
 app.get('/article-two',function(req,res) {
