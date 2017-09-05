@@ -1,5 +1,5 @@
 console.log('Loaded!');
 
-var element = document.getElementB ('mytext');
+var element = document.getElement('mytext');
 
 element.innerHTML = "Hai I am on the jouney ..";
