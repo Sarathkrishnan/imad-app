@@ -1,4 +1,4 @@
 console.log('Loaded!');
 
-var textmain = document.getElementById('main');
+var textmain = document.getElementB ('main');
 textmain.innerHTML = "Hai I am on the jouney ..";
