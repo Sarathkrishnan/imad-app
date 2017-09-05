@@ -1,5 +1,5 @@
 console.log('Loaded!');
 
-var textmain = document.getElementB ('mytext');
+var element = document.getElementB ('mytext');
 
-textmain.innerHTML = "Hai I am on the jouney ..";
+element.innerHTML = "Hai I am on the jouney ..";
