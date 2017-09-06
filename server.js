@@ -1,35 +1,111 @@
-<!doctype html>
-<html>
-    <head>
-        <link href="/ui/style.css" rel="stylesheet" />
-    </head>
-    <body>
-        
-        <div class="container">
-            <div class="center">
-                <img id="profile-pict" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAtCAAAAJDhhMjE3ZTQ2LTdkZGUtNDM2MC1hYzU3LTgxMGRiMGE3YjM1YQ.jpg" height="300px" width="300px">
-    </div>
-    <hr />
-    <h3>
-        Personal
-    </h3>
-    <div>
-        My name is sarathkrishnan G.S    
-    </div>
-    <hr />
-    <h3>Preofessional</h3>
-    <div>
-        computer engineering student
-    </div>
-    <hr />
-    <div class="footer">
-        This button <button id="counter">click ME</button> hs been clicked <span id="count">0</span> times.
-    </div>
-    </div>
+var express = require('express');
+var morgan = require('morgan');
+var path = require('path');
 
-        
-    <script type="text/javascript" src="/ui/main.js">
-    </script>
-        
-    </body>
-</html>
+var app = express();
+app.use(morgan('combined'));
+
+var articleOne = {
+    title : 'Article one',
+    heading : 'Article one',
+    date : '03/09/2017',
+    content :`
+            <p>
+            Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.
+            </p>
+            <p>
+            Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.
+            </p>
+            <p>
+            Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.Today I am going to create a new artcle using html and css. Before going to create this page I need to upder sand the basics of html and css.
+            </p>`
+    
+};
+
+function createTemplate (data) {
+    var title = data.title;
+    var date = data.date;
+    var heading = data.heading;
+    var content = data.content;
+    
+    
+
+    var htmlTemplate=`
+        <html>
+            <head>
+                <title>${title}</title>
+                <meta name="viewport" content="width-device-width, initial-scale=1"/>
+                <link href="/ui/style.css" rel="stylesheet" />
+            </head>
+            <body>
+                <div class="container">
+                    
+                    <div>
+                        <a href="/">HOME</a>
+                        <hr />
+                    </div>
+                    
+                    <div>
+                        <h1>${heading}</h1>
+                    </div>
+                    
+                    <div>
+                    ${date}
+                    </div>
+                    
+                    <div>
+                        ${content}
+                    </div>
+                </div>
+            </body>
+        </html>`;
+    return htmlTemplate;
+
+            
+}
+var counter=0;
+app.get('/counter',function(req, res) {
+   counter=counter+1; 
+   res.send(counter.toString());
+});
+
+app.get('/main.js', function(req, res){
+    res.sendFile(path.join(__dirname, 'ui', 'main.js'))
+});
+
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
+
+app.get('/article-one',function(req,res) {
+   res.send(createTemplate(articleOne));
+});
+
+app.get('/article-two',function(req,res) {
+   res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
+});
+
+app.get('/article-three',function(req,res) {
+   res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+});
+
+app.get('/ui/style.css', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'style.css'));
+});
+
+app.get('/ui/madi.png', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
+});
+
+app.get('/ui/main.js',function(req,res) {
+   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
+});
+
+// Do not change port, otherwise your app won't run on IMAD servers
+// Use 8080 only for local development if you already have apache running on 80
+
+var port = 80;
+app.listen(port, function () {
+  console.log(`IMAD course app listening on port ${port}!`);
+});
