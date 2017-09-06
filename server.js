@@ -1,8 +1,35 @@
-//counter code
-var button = document.getElementById('counter');
-var counter=0;
-button.onclick = function(){
-    counter=counter+1;
-    var span = document.getElementById('count');
-    span.innerHTML = counter.toString();
-};
+<!doctype html>
+<html>
+    <head>
+        <link href="/ui/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        
+        <div class="container">
+            <div class="center">
+                <img id="profile-pict" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAtCAAAAJDhhMjE3ZTQ2LTdkZGUtNDM2MC1hYzU3LTgxMGRiMGE3YjM1YQ.jpg" height="300px" width="300px">
+    </div>
+    <hr />
+    <h3>
+        Personal
+    </h3>
+    <div>
+        My name is sarathkrishnan G.S    
+    </div>
+    <hr />
+    <h3>Preofessional</h3>
+    <div>
+        computer engineering student
+    </div>
+    <hr />
+    <div class="footer">
+        This button <button id="counter">click ME</button> hs been clicked <span id="count">0</span> times.
+    </div>
+    </div>
+
+        
+    <script type="text/javascript" src="/ui/main.js">
+    </script>
+        
+    </body>
+</html>
